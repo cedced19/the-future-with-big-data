@@ -4,7 +4,7 @@ html
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
     title Un avenir avec plus de données: plus d'analyse de données
-
+    meta(name='description', content='A presentation to introduce Big Data to 15 years old students. ')
     link(rel='stylesheet', type='text/css', href='build/build.css')
 
   body
@@ -13,47 +13,73 @@ html
 
       section
         h1 Un avenir avec plus de données: plus d'analyse de données
-
+        
       section
-        h2 Keyboard Interaction
-        h3 Powered by <a href="https://github.com/markdalgleish/bespoke-keys">bespoke-keys</a>
-
-      section
-        h2 Touch Interaction
-        h3 Powered by <a href="https://github.com/markdalgleish/bespoke-touch">bespoke-touch</a>
-
-      section
-        h2 Responsive Slides
-        h3 Powered by <a href="https://github.com/markdalgleish/bespoke-scale">bespoke-scale</a>
-
-      section
-        h2 Bullet List
-        h3.bullet Powered by <a href="https://github.com/markdalgleish/bespoke-bullets">bespoke-bullets</a>
+        h2.bullet Sommaire
         ul
-          li Bullet 1
-          li Bullet 2
-          li Bullet 3
-
-      section(data-bespoke-hash='named-route')
-        h2 Named Route
-        h3 Powered by <a href="https://github.com/markdalgleish/bespoke-hash">bespoke-hash</a>
-        p Look up! This route has been named with a <em>'data-bespoke-hash'</em> attribute.
-
+          li D'où viennent ces données ?
+          li À quoi sert l'analyse de ces données ?
+          li Problèmes techniques
+          li L'acceptation en société
+      
+      section
+        h2 D'où viennent ces données ?
+      
+      section
+        h3.bullet De tous ce qui est connecté à Internet
+        h3.bullet C'est à dire:
+        ul
+          li Les Ordinateurs 
+          li Les Téléphones portables
+          li Les "Capteurs" connectés
+      
+      section
+        h3.bullet Mais aussi des systèmes classiques:
+        ul
+          li Compte bancaire
+          li Prévision météo
+          li Dossiers médicaux
+          
+      section
+        h2 À quoi sert l'analyse de ces données ?
+        
+      section
+        h3.bullet Santé
+        ul
+          li Reduire les dépences de santés
+          li Faire un choix médical plus précis
+      
+      section
+        h3 Maintenance prédictives
+      
+      section
+        h3 Optimiser en fonction de la météo
+        
       section.emphatic-text(data-bespoke-backdrop='emphatic')
-        h2 Emphatic Slide!
-        h3 Powered by <a href="https://github.com/markdalgleish/bespoke-backdrop">bespoke-backdrop</a>
+        h2 Mais...
+      
+      section
+        h2 Il y a des problèmes techniques
+      
+      section
+        h2.bullet Data scientist
+        h3 "Scientifiques de la données"
+        ul
+          li Choisir l'algorithme
+          li Nettoyer les données
+          li Trouver les données manquantes 
+          li Mettre à jour ces systèmes
+      
+      section
+        img(src="images/nerone.svg", width="800px")
+      
+      section
+        img(src="images/reseau-de-nerone.svg", width="650px")
+      
+      section
+        h2 Et il faut faire accepter la récolte de données 
 
       section
-        h2.bullet Just the beginning...
-        br
-        ul
-          li Edit <a href="http://jade-lang.com/">Jade</a> markup in <em>'src/index.jade'</em>
-          li Edit <a href="http://learnboost.github.io/stylus/">Stylus</a> styles in <em>'src/styles/main.styl'</em>
-          li Edit JavaScript in <em>'src/scripts/main.js'</em>
-        br
-        ul
-          li
-            strong Enjoy! :)
-            a(href='http://twitter.com/markdalgleish')  -@markdalgleish
+        h2 Merci
 
     script(src='build/build.js')
