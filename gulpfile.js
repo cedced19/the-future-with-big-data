@@ -18,6 +18,7 @@ var pkg = require('./package.json'),
   ghpages = require('gh-pages'),
   path = require('path'),
   htmlmin = require('gulp-htmlmin'),
+  svgSprite = require('gulp-svg-sprite'),
   isDist = process.argv.indexOf('serve') === -1;
 
 gulp.task('js', ['clean:js'], function() {
@@ -61,6 +62,20 @@ gulp.task('images', ['clean:images'], function() {
     .pipe(connect.reload());
 });
 
+gulp.task('svgs', ['clean:svgs'], function() {
+  return gulp.src('src/svgs/**/*')
+    .pipe(svgSprite({
+      mode: {
+        symbol: {
+          dest: './',
+          sprite: 'sprite.svg'
+        }
+      }
+    }))
+    .pipe(gulp.dest('dist'))
+    .pipe(connect.reload());
+});
+
 gulp.task('clean', function(done) {
   del('dist', done);
 });
@@ -81,6 +96,10 @@ gulp.task('clean:images', function(done) {
   del('dist/images', done);
 });
 
+gulp.task('clean:svgs', function(done) {
+  del('dist/sprite.svg', done);
+});
+
 gulp.task('connect', ['build'], function() {
   connect.server({
     root: 'dist',
@@ -96,6 +115,7 @@ gulp.task('watch', function() {
   gulp.watch('src/**/*.jade', ['html']);
   gulp.watch('src/styles/**/*.styl', ['css']);
   gulp.watch('src/images/**/*', ['images']);
+  gulp.watch('src/svgs/**/*', ['svgs']);
   gulp.watch([
     'src/scripts/**/*.js',
     'bespoke-theme-*/dist/*.js' // Allow themes to be developed in parallel
@@ -106,7 +126,7 @@ gulp.task('deploy', ['build'], function(done) {
   ghpages.publish(path.join(__dirname, 'dist'), { logger: gutil.log }, done);
 });
 
-gulp.task('build', ['js', 'html', 'css', 'images']);
+gulp.task('build', ['js', 'html', 'css', 'images', 'svgs']);
 
 gulp.task('serve', ['open', 'watch']);
 
